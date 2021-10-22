@@ -1,5 +1,7 @@
 package Principal;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.apache.log4j.LogManager;
@@ -8,10 +10,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+
 import com.serbatic.course.datamodel.utils.HibernateUtil;
 
 import EjercicioHibernate.EjercicioHibernate.Departamento;
+import EjercicioHibernate.EjercicioHibernate.Empleado;
 import HibernateDAO.DepartamentoDAO;
+import HibernateDAO.EmpleadoDAO;
 
 
 public class Principal {
@@ -43,7 +48,24 @@ public class Principal {
 	  										 .filter(x -> x.getCodigo() == codigo)
 	  										 .findFirst()
 	  										 .orElse(null);
+				int numEmpl = 7;
+				EmpleadoDAO.insertEmpleado(session, numEmpl);
 				
+				// Recuperamos y listamos proveedores
+				List<Empleado> provs = EmpleadoDAO.getAllEmpleado(session);
+				logger.info(String.format("%1$s: number of providers = %2$s.", methodName, provs.size()));
+				providers.stream().forEach(x -> logger.info(String.format("%1$s: ---> %2$s.", methodName, x.toString())));
+				
+				// Actualizamos proveedor 1
+				Empleado prov = provs.stream()
+	  										 .filter(x -> x.getCodigo() == codigo)
+	  										 .findFirst()
+	  										 .orElse(null);
+				
+			
+		
+				tx.commit();
+			
 	}
 		catch (Exception e) {
 			  if (tx != null) {

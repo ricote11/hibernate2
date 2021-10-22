@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generated 22 oct 2021 17:42:51 by Hibernate Tools 5.5.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="empresa" dynamic-insert="false" dynamic-update="false" mutable="true" name="Empleado" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="empleado">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="EjercicioHibernate.EjercicioHibernate.Empleado" optimistic-lock="none" polymorphism="implicit" select-before-update="false" table="empleado">
         <id name="codigo" type="int">
             <column name="codigo"/>
             <generator class="assigned"/>
