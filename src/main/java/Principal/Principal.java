@@ -37,7 +37,7 @@ public class Principal {
 				// Insertamos proveedores
 				int numProviders = (int)Math.random()*100;;
 				DepartamentoDAO.insertClient(session, numProviders);
-				
+				logger.info("insertar proveedor");
 				// Recuperamos y listamos proveedores
 				List<Departamento> providers = DepartamentoDAO.getAllClients(session);
 				logger.info(String.format("%1$s: number of providers = %2$s.", methodName, providers.size()));
@@ -50,7 +50,7 @@ public class Principal {
 	  										 .orElse(null);
 				int numEmpl = 7;
 				EmpleadoDAO.insertEmpleado(session, numEmpl);
-				
+				logger.info("insertar empleados");
 				// Recuperamos y listamos proveedores
 				List<Empleado> provs = EmpleadoDAO.getAllEmpleado(session);
 				logger.info(String.format("%1$s: number of providers = %2$s.", methodName, provs.size()));
@@ -72,6 +72,7 @@ public class Principal {
 			    tx.rollback();
 			  }
 				logger.error(String.format("%1$s: error when inserting registries.", methodName), e);
+				logger.error("El sistema ha fallado");
 			}
 			finally {
 				if (session != null) {

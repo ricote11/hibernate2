@@ -2,6 +2,8 @@ package HibernateDAO;
 
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.hibernate.Session;
 
 
@@ -21,9 +23,9 @@ public class DepartamentoDAO {
 		  
 			public static void insertClient(Session s, int id) {
 				int probabilidad = (int)Math.random()*100;
-				int codigo = 30;
-				String nombre = "Funcionario ";
-				int codResponsable = probabilidad;
+				int codigo = Integer.parseInt(JOptionPane.showInputDialog("introduce un codigo"));
+				String nombre = JOptionPane.showInputDialog("Introducir nombre");
+				int codResponsable = Integer.parseInt(JOptionPane.showInputDialog("introduce un codigo de responsable"));
 			
 				
 				Departamento departamento = new Departamento(codigo,nombre,codResponsable);
