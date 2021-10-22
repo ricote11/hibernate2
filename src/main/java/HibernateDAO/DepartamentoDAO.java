@@ -21,8 +21,8 @@ public class DepartamentoDAO {
 		  
 			public static void insertClient(Session s, int id) {
 				int probabilidad = (int)Math.random()*100;
-				int codigo = id;
-				String nombre = "nombre ";
+				int codigo = 19;
+				String nombre = "Funcionario ";
 				int codResponsable = probabilidad;
 			
 				

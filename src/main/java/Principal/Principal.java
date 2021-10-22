@@ -31,7 +31,7 @@ public class Principal {
 				
 				// Insertamos proveedores
 				int numProviders = (int)Math.random()*100;;
-				DepartamentoDAO.insertClients(session, numProviders);
+				DepartamentoDAO.insertClient(session, numProviders);
 				
 				// Recuperamos y listamos proveedores
 				List<Departamento> providers = DepartamentoDAO.getAllClients(session);
